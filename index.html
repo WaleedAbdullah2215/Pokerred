@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101411">
+<title>Pokerred · Texas Hold’em</title>
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="./" aria-label="Pokerred home"><span>♠</span> POKER<span class="red">RED</span></a>
+  <div class="bar-actions"><button id="rules">How to play</button><button id="reset">New table</button></div>
+</header>
+<main>
+  <div class="intro"><div><div class="eyebrow">THE PRACTICE ROOM</div><h1>Texas Hold’em</h1></div><div class="badge">PLAY CHIPS ONLY</div></div>
+  <div class="layout">
+    <section class="game" aria-label="Poker table">
+      <div class="game-head"><span id="hand"></span><span>BLINDS <b>10 / 20</b></span></div>
+      <div class="arena">
+        <div class="felt" aria-hidden="true"></div>
+        <div id="seat1" class="seat left"></div><div id="seat2" class="seat top"></div><div id="seat3" class="seat right"></div>
+        <div class="board"><div id="street"></div><div id="community" class="cards"></div><div class="pot"><span>◉</span> POT <strong id="pot"></strong></div></div>
+        <div id="seat0" class="seat hero"></div>
+      </div>
+      <div class="controls">
+        <div id="status" role="status"></div>
+        <div id="actions"><button id="fold">Fold</button><button id="call"></button><button id="raise"></button><button id="next">Next hand</button></div>
+        <div id="sizing"><label for="size" id="size-label">Raise to</label><input type="range" id="size"><output id="amount" for="size"></output></div>
+      </div>
+    </section>
+    <aside class="sidebar">
+      <section><h2>Table activity</h2><ol id="activity"></ol></section>
+      <section><h2>Session</h2><dl><div><dt>Your stack</dt><dd id="stack"></dd></div><div><dt>Hands won</dt><dd id="wins">0</dd></div><div><dt>Players</dt><dd id="players"></dd></div></dl></section>
+    </aside>
+  </div>
+  <footer>POKERRED <span>SOLO TABLE · 3 COMPUTER OPPONENTS</span></footer>
+</main>
+<dialog id="guide"><form method="dialog"><button class="close" aria-label="Close">×</button></form><h2>How to play</h2>
+<p>Build your best five-card hand from your two private cards and the five cards shared by the table. Win by having the strongest hand at showdown or being the last player left in the hand.</p>
+<p>Check when the action costs zero chips. Call to match the current bet, raise to increase it, or fold to sit out the rest of the hand. The board is dealt in three stages after the opening round: flop, turn, and river.</p>
+<h3>Hand rankings · strongest first</h3><ol id="rankings"></ol></dialog>
+<dialog id="restart"><h2>Start a new table?</h2><p>This resets your current hand, stacks, and session stats.</p><form method="dialog" class="dialog-actions"><button value="cancel">Cancel</button><button value="reset">Start new table</button></form></dialog>
+</body>
+</html>
